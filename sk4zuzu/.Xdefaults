@@ -1,0 +1,25 @@
+
+urxvt.termName: xterm
+urxvt.font:           xft:Monaco:pixelsize=16
+urxvt.boldFont:       xft:Monaco:pixelsize=16
+urxvt.italicFont:     xft:Monaco:pixelsize=16
+urxvt.boldItalicFont: xft:Monaco:pixelsize=16
+urxvt.depth: 32
+urxvt.background: [80]black
+urxvt.foreground: #99e199
+urxvt.cursorBlink: on
+urxvt.cursorColor: red
+urxvt.saveLines: 4444
+urxvt.scrollBar: off
+urxvt.perl-ext-common: default,matcher,font-size
+urxvt.url-launcher: chromium-browser
+urxvt.matcher.button: 1
+urxvt.keysym.C-Up:     perl:font-size:increase
+urxvt.keysym.C-Down:   perl:font-size:decrease
+urxvt.keysym.C-S-Up:   perl:font-size:incglobal
+urxvt.keysym.C-S-Down: perl:font-size:decglobal
+urxvt.iso14755: false
+urxvt.iso14755_52: false
+urxvt.font-size.step: 2
+
+# vim:ts=4:sw=4:et:

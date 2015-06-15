@@ -1,0 +1,5 @@
+pcm.pulse { type pulse }
+ctl.pulse { type pulse }
+pcm.!default { type pulse }
+ctl.!default { type pulse }
+# vim:ts=4:sw=4:et:

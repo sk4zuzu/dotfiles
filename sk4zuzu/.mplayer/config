@@ -1,0 +1,3 @@
+# Write your default config options here!
+subcp=cp1250
+vo=gl
