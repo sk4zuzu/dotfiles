@@ -3,7 +3,7 @@
 export TERM='xterm'
 export LANG='en_US.UTF-8'
 
-export EDITOR='nvim'
+export EDITOR='vim'
 
 export GOPATH="$HOME/go"
 
@@ -13,4 +13,4 @@ if [ -e "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"
 fi
 
-# vim:ts=4:sw=4:et:
+# vim:ts=4:sw=4:et:syn=sh:
