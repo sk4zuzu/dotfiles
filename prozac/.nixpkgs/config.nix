@@ -6,11 +6,12 @@
       paths = [
         vim mc htop
         zip unzip
-        bash which jq
+        bash which
+        curl jq
         docker_compose
         git stow
         vscode
-        go
+        go gcc
       ];
     };
   };
