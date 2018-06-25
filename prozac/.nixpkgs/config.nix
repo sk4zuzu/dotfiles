@@ -11,7 +11,7 @@
         docker_compose
         git stow
         vscode
-        go gcc
+        go gcc gnumake
       ];
     };
   };
