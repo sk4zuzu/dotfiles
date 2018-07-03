@@ -8,13 +8,17 @@
         zip unzip
         bash which
         curl jq
-        docker_compose
         git stow
+
         vscode
         go gcc gnumake protobuf
+
         python2
         python27Packages.pip
         python27Packages.virtualenv
+
+        docker_compose
+        kubectl kubernetes-helm
       ];
     };
   };
