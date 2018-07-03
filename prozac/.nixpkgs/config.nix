@@ -11,7 +11,7 @@
         docker_compose
         git stow
         vscode
-        go gcc gnumake
+        go gcc gnumake protobuf
         python2
         python27Packages.pip
         python27Packages.virtualenv
