@@ -12,6 +12,9 @@
         git stow
         vscode
         go gcc gnumake
+        python2
+        python27Packages.pip
+        python27Packages.virtualenv
       ];
     };
   };

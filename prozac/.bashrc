@@ -19,4 +19,8 @@ else
     unset KEY
 fi
 
+if [ -f "${HOME}/2.7/bin/activate" ]; then
+    source ${HOME}/2.7/bin/activate
+fi
+
 # vim:ts=4:sw=4:et:
