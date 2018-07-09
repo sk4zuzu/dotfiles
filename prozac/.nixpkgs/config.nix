@@ -11,7 +11,7 @@
         git stow
 
         vscode
-        go gcc gnumake protobuf
+        go gcc pkgconfig gnumake protobuf
 
         python2
         python27Packages.pip
