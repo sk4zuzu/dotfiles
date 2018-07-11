@@ -10,7 +10,7 @@
         curl jq
         git stow
 
-        vscode
+        vscode graphviz
         go gcc pkgconfig gnumake protobuf
 
         python2
