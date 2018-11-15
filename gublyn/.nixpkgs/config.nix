@@ -6,11 +6,15 @@
       paths = [
         vim mc htop
         zip unzip
-        bash which jq
-        docker_compose
+        bash which
+        curl jq
         git stow
-        vscode
-        rustup
+
+        python2
+        python27Packages.pip
+        python27Packages.virtualenv
+
+        docker_compose
       ];
     };
   };
