@@ -10,9 +10,9 @@
         curl jq
         git stow
 
-        python2
-        python27Packages.pip
-        python27Packages.virtualenv
+        python3
+        python3Packages.pip
+        python3Packages.virtualenv
 
         docker_compose
       ];
