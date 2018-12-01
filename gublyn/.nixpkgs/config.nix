@@ -9,12 +9,9 @@
         bash which
         curl jq
         git stow
-
-        python3
-        python3Packages.pip
-        python3Packages.virtualenv
-
         docker_compose
+        vscode gnumake
+        rustup gcc gdb
       ];
     };
   };
