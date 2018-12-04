@@ -13,6 +13,7 @@
         python36Full
         python36Packages.pip
         python36Packages.virtualenv
+        nodejs-8_x
       ];
     };
   };
