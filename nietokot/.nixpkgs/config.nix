@@ -9,7 +9,7 @@
         bash which
         curl jq
         git stow
-        vscode
+        vscode groff
         python36Full
         python36Packages.pip
         python36Packages.virtualenv
