@@ -9,8 +9,10 @@
         bash which
         curl jq
         git stow
-        docker_compose
         vscode
+        python36Full
+        python36Packages.pip
+        python36Packages.virtualenv
       ];
     };
   };
