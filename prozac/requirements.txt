@@ -1,3 +1,4 @@
 pygments
 pygments-json
-azure-cli
+awscli
+docker-compose
