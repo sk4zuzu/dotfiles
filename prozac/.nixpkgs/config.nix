@@ -4,7 +4,7 @@
     local = with pkgs; buildEnv {
       name = "local";
       paths = [
-        vim mc htop
+        vim mc htop groff
         zip unzip
         bash which
         curl jq
@@ -18,7 +18,8 @@
         python27Packages.virtualenv
 
         docker_compose
-        kubectl kubernetes-helm
+
+        postgresql
       ];
     };
   };
