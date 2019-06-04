@@ -38,9 +38,8 @@ myStartupHook = setWMName "LG3D"
              >> spawn "xrandr.sh"
              >> spawnUnless "pulseaudio" ["--start"]
              >> spawnUnless "redshift" mempty
-             >> spawnOnUnless (className =? "Leafpad"         ) "2" "leafpad"
-             >> spawnOnUnless (className =? "chromium-browser") "1" "chromium-browser"
-             >> spawnOnUnless (className =? "Pavucontrol"     ) "7" "pavucontrol"
+             >> spawnOnUnless (className =? "Chromium-browser") "2" "chromium-browser"
+             >> spawnOnUnless (className =? "Pavucontrol"     ) "1" "pavucontrol"
 
 
 myLayoutHook = showWName
