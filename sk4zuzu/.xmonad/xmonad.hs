@@ -36,7 +36,6 @@ spawnUnless cmd args = do
 
 myStartupHook = setWMName "LG3D"
              >> spawn "xrandr.sh"
-             >> spawnUnless "pulseaudio" ["--start"]
              >> spawnUnless "redshift" mempty
              >> spawnOnUnless (className =? "Pavucontrol"     ) "1" "pavucontrol"
              >> spawnOnUnless (className =? "Chromium-browser") "2" "chromium-browser"
