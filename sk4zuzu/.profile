@@ -3,7 +3,7 @@
 export TERM='xterm'
 
 export LANG='en_US.UTF-8'
-export EDITOR='nvim'
+export EDITOR='vim'
 
 export CFLAGS='-O3 -march=native -mtune=native'
 export CXXFLAGS="$CFLAGS"
