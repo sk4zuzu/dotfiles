@@ -11,15 +11,11 @@
         git stow
 
         vscode graphviz
-        go gcc pkgconfig gnumake protobuf
 
-        python2
-        python27Packages.pip
-        python27Packages.virtualenv
+        python3
+        python37Packages.virtualenv
 
         docker_compose
-
-        postgresql
       ];
     };
   };
