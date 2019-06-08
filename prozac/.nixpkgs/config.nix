@@ -10,12 +10,12 @@
         curl jq
         git stow
 
-        vscode graphviz
+        vscode
 
         python3
         python37Packages.virtualenv
 
-        docker_compose
+        docker_compose packer vagrant
       ];
     };
   };
