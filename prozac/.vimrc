@@ -36,7 +36,6 @@ fu! s:MakeModeline(...)
 endfu
 
 autocmd BufNewFile,BufRead *.nix      set filetype=nix
-autocmd BufNewFile,BufRead *.sol      set filetype=solidity
 autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=typescript
 autocmd BufNewFile,BufRead Packerfile set filetype=json
 
