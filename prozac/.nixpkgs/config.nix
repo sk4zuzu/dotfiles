@@ -10,12 +10,14 @@
         curl jq
         git stow
 
-        vscode
+        vscode gnumake
 
         python3
         python37Packages.virtualenv
 
         docker_compose packer vagrant
+
+        google-cloud-sdk
       ];
     };
   };
