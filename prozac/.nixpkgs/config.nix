@@ -14,6 +14,7 @@
 
         php
         php72Packages.box
+        php72Packages.composer
 
         python3
         python37Packages.virtualenv
