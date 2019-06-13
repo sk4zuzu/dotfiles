@@ -15,6 +15,8 @@
         python3
         python37Packages.virtualenv
 
+        nodejs-10_x
+
         docker_compose packer vagrant
 
         google-cloud-sdk
