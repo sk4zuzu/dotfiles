@@ -12,9 +12,9 @@
 
         vscode gnumake
 
-        php
-        php72Packages.box
-        php72Packages.composer
+        php71
+        php71Packages.box
+        php71Packages.composer
 
         python3
         python37Packages.virtualenv
