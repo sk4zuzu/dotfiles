@@ -35,9 +35,9 @@ fu! s:MakeModeline(...)
     endif
 endfu
 
-autocmd BufNewFile,BufRead *.nix      set filetype=nix
-autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=typescript
-autocmd BufNewFile,BufRead Packerfile set filetype=json
+autocmd BufNewFile,BufRead *.nix                   set filetype=nix
+autocmd BufNewFile,BufRead *.ts,*.tsx              set filetype=typescript
+autocmd BufNewFile,BufRead Packerfile,*.Packerfile set filetype=json
 
 autocmd FileType        nix set ts=2 sw=2 et | call s:MakeModeline('#')
 autocmd FileType   solidity set ts=4 sw=4 et | call s:MakeModeline('//')
