@@ -21,7 +21,7 @@
 
         nodejs-10_x
 
-        docker_compose packer vagrant
+        docker_compose vagrant
 
         google-cloud-sdk
       ];
