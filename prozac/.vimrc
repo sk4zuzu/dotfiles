@@ -38,6 +38,7 @@ endfu
 autocmd BufNewFile,BufRead *.nix                   set filetype=nix
 autocmd BufNewFile,BufRead *.ts,*.tsx              set filetype=typescript
 autocmd BufNewFile,BufRead Packerfile,*.Packerfile set filetype=json
+autocmd BufNewFile,BufRead *.hcl                   set filetype=terraform
 
 autocmd FileType        nix set ts=2 sw=2 et | call s:MakeModeline('#')
 autocmd FileType   solidity set ts=4 sw=4 et | call s:MakeModeline('//')
@@ -51,6 +52,7 @@ autocmd FileType javascript set ts=2 sw=2 et | call s:MakeModeline('//')
 autocmd FileType typescript set ts=2 sw=2 et | call s:MakeModeline('//')
 autocmd FileType       json set ts=2 sw=2 et
 autocmd FileType        css set ts=2 sw=2 et | call s:MakeModeline('/*', '*/')
+autocmd FileType  terraform set ts=2 sw=2 et | call s:MakeModeline('#')
 
 command ML execute
     \ '$s@$@\r' . (exists('b:effective_modeline') ? b:effective_modeline : g:default_modeline) . '@|noh|write!|edit'
