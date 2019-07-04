@@ -11,7 +11,7 @@
         git stow
         docker_compose
         vscode gnumake
-        rustup gcc gdb
+        rustup lldb clang
       ];
     };
   };
