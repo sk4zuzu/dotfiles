@@ -53,4 +53,19 @@ hashicorp_release_install terraform-provider-template $TERRAFORM_PROVIDER_TEMPLA
 hashicorp_release_install terraform-provider-terraform $TERRAFORM_PROVIDER_TERRAFORM_VERSION
 hashicorp_release_install terraform-provider-google $TERRAFORM_PROVIDER_GOOGLE_VERSION
 
+pip3_install_requirements_txt() {
+    nix-shell --run \
+        "unset SOURCE_DATE_EPOCH && pip3 --no-cache-dir install -r $HOME/requirements.txt"
+}
+
+pip3_install_requirements_txt
+
+npm_install_requirements() {
+    npm install -g npm && npm install -g \
+        yarn \
+        react-scripts
+}
+
+npm_install_requirements
+
 # vim:ts=4:sw=4:et:syn=sh:
