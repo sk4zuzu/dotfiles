@@ -5,9 +5,6 @@ export LANG='en_US.UTF-8'
 
 export EDITOR='vim'
 
-export PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin:$PATH"
-export MANPATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/man/:$MANPATH"
-
 if [ -e "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"
 fi
