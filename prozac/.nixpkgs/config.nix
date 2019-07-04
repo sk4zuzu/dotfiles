@@ -11,6 +11,7 @@
         git stow
 
         vscode gnumake
+        rustup clang lldb
 
         php71
         php71Packages.box
