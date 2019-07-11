@@ -22,6 +22,8 @@
 
         nodejs-10_x
 
+        postgresql_11
+
         docker_compose vagrant
 
         google-cloud-sdk
