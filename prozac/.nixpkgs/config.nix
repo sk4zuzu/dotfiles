@@ -9,6 +9,7 @@
         bash which
         curl jq
         git stow
+        feh
 
         vscode gnumake
         rustup clang lldb
@@ -27,6 +28,8 @@
         docker_compose vagrant
 
         google-cloud-sdk
+
+        maven openjdk
       ];
     };
   };

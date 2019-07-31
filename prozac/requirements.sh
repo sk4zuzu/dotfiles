@@ -12,6 +12,8 @@ set -e
 : ${TERRAFORM_PROVIDER_TEMPLATE_VERSION:=2.1.2}
 : ${TERRAFORM_PROVIDER_TERRAFORM_VERSION:=1.0.2}
 : ${TERRAFORM_PROVIDER_GOOGLE_VERSION:=2.9.1}
+: ${TERRAFORM_PROVIDER_KUBERNETES_VERSION:=1.8.1}
+: ${TERRAFORM_PROVIDER_HELM_VERSION:=0.10.1}
 
 set -o errexit -o nounset -o pipefail
 set -x
@@ -52,6 +54,8 @@ hashicorp_release_install terraform-provider-local $TERRAFORM_PROVIDER_LOCAL_VER
 hashicorp_release_install terraform-provider-template $TERRAFORM_PROVIDER_TEMPLATE_VERSION
 hashicorp_release_install terraform-provider-terraform $TERRAFORM_PROVIDER_TERRAFORM_VERSION
 hashicorp_release_install terraform-provider-google $TERRAFORM_PROVIDER_GOOGLE_VERSION
+hashicorp_release_install terraform-provider-kubernetes $TERRAFORM_PROVIDER_KUBERNETES_VERSION
+hashicorp_release_install terraform-provider-helm $TERRAFORM_PROVIDER_HELM_VERSION
 
 pip3_install_requirements_txt() {
     nix-shell --run \
