@@ -1,4 +1,0 @@
-pygments
-pygments-json
-ansible
-netaddr

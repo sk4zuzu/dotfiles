@@ -6,12 +6,12 @@
       paths = [
         vim mc htop groff
         zip unzip
-        bash which
+        bash gnumake which
         curl jq
         git stow
         feh
 
-        vscode gnumake
+        vscode
         rustup clang lldb
 
         php71
