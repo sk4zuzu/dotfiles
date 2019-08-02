@@ -32,8 +32,7 @@ define hashicorp_release_install
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
-	set -x \
-	&& curl -fSL https://releases.hashicorp.com/$(1)/$(2)/$(1)_$(2)_linux_amd64.zip \
+	curl -fSL https://releases.hashicorp.com/$(1)/$(2)/$(1)_$(2)_linux_amd64.zip \
 	| zcat >$$@ \
 	&& chmod +x $$@
 endef
@@ -42,9 +41,8 @@ define terragrunt_release_install
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
-	set -x \
-	&& curl -fSL https://github.com/gruntwork-io/$(1)/releases/download/v$(2)/$(1)_linux_amd64 \
-         -o $$@ \
+	curl -fSL https://github.com/gruntwork-io/$(1)/releases/download/v$(2)/$(1)_linux_amd64 \
+	     -o $$@ \
 	&& chmod +x $$@
 endef
 
@@ -52,9 +50,8 @@ define kubernetes_release_install
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
-	set -x \
-    && curl -fSL https://storage.googleapis.com/kubernetes-release/release/v$(2)/bin/linux/amd64/$(1) \
-         -o $$@ \
+	curl -fSL https://storage.googleapis.com/kubernetes-release/release/v$(2)/bin/linux/amd64/$(1) \
+	     -o $$@ \
 	&& chmod +x $$@
 endef
 
@@ -62,10 +59,9 @@ define helm_release_install
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
-	set -x \
-	&& curl -fSL https://get.helm.sh/$(1)-v$(2)-linux-amd64.tar.gz \
+	curl -fSL https://get.helm.sh/$(1)-v$(2)-linux-amd64.tar.gz \
 	| tar -xz -f- --strip-components=1 -C /tmp/ linux-amd64/$(1) \
-    && mv -f /tmp/$(1) $$@ \
+	&& mv -f /tmp/$(1) $$@ \
 	&& chmod +x $$@
 endef
 
