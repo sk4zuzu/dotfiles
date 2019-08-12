@@ -5,6 +5,9 @@ export PS1='\u:\w\$ '
 alias hrep='history|grep'
 alias root='sudo -u root -i'
 
+alias vag='vagrant'
+alias dkr='docker'
+
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 
 if [ -n "${SSH_AGENT_PID}" ]; then
