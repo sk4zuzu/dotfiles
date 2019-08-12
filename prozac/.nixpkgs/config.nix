@@ -23,7 +23,7 @@
 
         nodejs-10_x
 
-        postgresql_11
+        postgresql_11 mysql57
 
         docker_compose vagrant
 
