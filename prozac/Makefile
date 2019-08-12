@@ -1,6 +1,6 @@
 
 HELM_VERSION                          ?= 2.14.3
-KUBECTL_VERSION                       ?= 1.15.1
+KUBECTL_VERSION                       ?= 1.14.3
 PACKER_VERSION                        ?= 1.4.1
 TERRAFORM_VERSION                     ?= 0.12.3
 TERRAFORM_PROVIDER_ACME_VERSION       ?= 1.3.5
@@ -74,6 +74,7 @@ endef
 PIP_REQUIREMENTS = \
 ansible \
 netaddr \
+ovh \
 pygments \
 pygments-json
 
