@@ -73,10 +73,18 @@ endef
 
 PIP_REQUIREMENTS = \
 ansible \
+autopep8 \
+fabric \
+mypy \
 netaddr \
 ovh \
+pipenv \
 pygments \
-pygments-json
+pygments-json \
+pylint \
+pylint-runner \
+python-vagrant \
+watchdog
 
 NPM_REQUIREMENTS = \
 yarn \

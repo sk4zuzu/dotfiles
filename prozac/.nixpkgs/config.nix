@@ -6,7 +6,7 @@
       paths = [
         vim mc htop groff
         zip unzip
-        bash gnumake which
+        bash_5 gnumake which
         curl jq
         git stow
         feh
