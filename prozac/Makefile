@@ -84,6 +84,7 @@ pygments-json \
 pylint \
 pylint-runner \
 python-vagrant \
+tavern \
 watchdog
 
 NPM_REQUIREMENTS = \
