@@ -1,20 +1,20 @@
 
-HELM_VERSION                          ?= 2.14.3
-KUBECTL_VERSION                       ?= 1.14.3
-PACKER_VERSION                        ?= 1.4.1
-TERRAFORM_VERSION                     ?= 0.12.3
-TERRAFORM_PROVIDER_ACME_VERSION       ?= 1.3.5
-TERRAFORM_PROVIDER_GOOGLE_VERSION     ?= 2.9.1
-TERRAFORM_PROVIDER_HELM_VERSION       ?= 0.10.1
-TERRAFORM_PROVIDER_KUBERNETES_VERSION ?= 1.8.1
-TERRAFORM_PROVIDER_LOCAL_VERSION      ?= 1.3.0
+HELM_VERSION                          ?= 2.13.1
+KUBECTL_VERSION                       ?= 1.13.1
+PACKER_VERSION                        ?= 1.4.5
+TERRAFORM_VERSION                     ?= 0.12.13
+TERRAFORM_PROVIDER_ACME_VERSION       ?= 1.5.0
+TERRAFORM_PROVIDER_GOOGLE_VERSION     ?= 2.19.0
+TERRAFORM_PROVIDER_HELM_VERSION       ?= 0.10.4
+TERRAFORM_PROVIDER_KUBERNETES_VERSION ?= 1.9.0
+TERRAFORM_PROVIDER_LOCAL_VERSION      ?= 1.4.0
 TERRAFORM_PROVIDER_NULL_VERSION       ?= 2.1.2
 TERRAFORM_PROVIDER_OVH_VERSION        ?= 0.5.0
-TERRAFORM_PROVIDER_RANDOM_VERSION     ?= 2.1.2
+TERRAFORM_PROVIDER_RANDOM_VERSION     ?= 2.2.1
 TERRAFORM_PROVIDER_TEMPLATE_VERSION   ?= 2.1.2
 TERRAFORM_PROVIDER_TERRAFORM_VERSION  ?= 1.0.2
-TERRAFORM_PROVIDER_TLS_VERSION        ?= 2.0.1
-TERRAGRUNT_VERSION                    ?= 0.19.7
+TERRAFORM_PROVIDER_TLS_VERSION        ?= 2.1.1
+TERRAGRUNT_VERSION                    ?= 0.21.4
 
 TARGETS = \
 $(GOPATH)/bin/helm \
@@ -35,15 +35,21 @@ $(GOPATH)/bin/terraform-provider-tls \
 $(GOPATH)/bin/terragrunt
 
 define hashicorp_release_install
+.PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
-	curl -fSL https://releases.hashicorp.com/$(1)/$(2)/$(1)_$(2)_linux_amd64.zip \
-	| zcat >$$@ \
+	mkdir -p /tmp/$(1)-$(2)/ \
+	&& curl -fSL https://releases.hashicorp.com/$(1)/$(2)/$(1)_$(2)_linux_amd64.zip \
+	        -o /tmp/$(1)-$(2)/download.zip \
+	&& unzip -o -d /tmp/$(1)-$(2)/ /tmp/$(1)-$(2)/download.zip \
+	&& mv /tmp/$(1)-$(2)/$(1)* $$@ \
+	&& rm -rf /tmp/$(1)-$(2)/ \
 	&& chmod +x $$@
 endef
 
 define helm_release_install
+.PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
@@ -54,6 +60,7 @@ $(GOPATH)/bin/$(1)-$(2):
 endef
 
 define kubernetes_release_install
+.PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
@@ -63,6 +70,7 @@ $(GOPATH)/bin/$(1)-$(2):
 endef
 
 define terragrunt_release_install
+.PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):

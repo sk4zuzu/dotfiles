@@ -14,9 +14,8 @@
         vscode
         rustup clang lldb
 
-        php71
-        php71Packages.box
-        php71Packages.composer
+        php73
+        php73Packages.composer
 
         python3
         python37Packages.virtualenv
@@ -28,8 +27,6 @@
         docker_compose vagrant
 
         google-cloud-sdk
-
-        maven openjdk
       ];
     };
   };
