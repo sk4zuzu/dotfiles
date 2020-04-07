@@ -7,11 +7,11 @@
         vim mc htop groff
         zip unzip
         bash_5 which
-        curl jq
+        curl ncat
         git stow
 
         gnumake pkg-config
- 
+
         vscode
         go
         python3
@@ -19,7 +19,9 @@
 
         nodejs-10_x
 
-        docker_compose 
+        docker_compose
+
+        cdrkit cloud-utils
       ];
     };
   };
