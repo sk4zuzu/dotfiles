@@ -53,15 +53,6 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-  # Faux Scrolling
-  #
-  # The `faux_multiplier` setting controls the number of lines the terminal
-  # should scroll when the alternate screen buffer is active. This is used
-  # to allow mouse scrolling for applications like `man`.
-  #
-  # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
-
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
 
@@ -451,24 +442,16 @@ key_bindings:
   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                        }
   - { key: Insert,                  chars: "\x1b[2~"                         }
   - { key: Delete,                  chars: "\x1b[3~"                         }
-  - { key: Left,     mods: Shift,   chars: "\x1b[1;2D"                       }
   - { key: Left,     mods: Control, chars: "\x1b[1;5D"                       }
-  - { key: Left,     mods: Alt,     chars: "\x1b[1;3D"                       }
   - { key: Left,                    chars: "\x1b[D",        mode: ~AppCursor }
   - { key: Left,                    chars: "\x1bOD",        mode: AppCursor  }
-  - { key: Right,    mods: Shift,   chars: "\x1b[1;2C"                       }
   - { key: Right,    mods: Control, chars: "\x1b[1;5C"                       }
-  - { key: Right,    mods: Alt,     chars: "\x1b[1;3C"                       }
   - { key: Right,                   chars: "\x1b[C",        mode: ~AppCursor }
   - { key: Right,                   chars: "\x1bOC",        mode: AppCursor  }
-  - { key: Up,       mods: Shift,   chars: "\x1b[1;2A"                       }
   - { key: Up,       mods: Control, chars: "\x1b[1;5A"                       }
-  - { key: Up,       mods: Alt,     chars: "\x1b[1;3A"                       }
   - { key: Up,                      chars: "\x1b[A",        mode: ~AppCursor }
   - { key: Up,                      chars: "\x1bOA",        mode: AppCursor  }
-  - { key: Down,     mods: Shift,   chars: "\x1b[1;2B"                       }
   - { key: Down,     mods: Control, chars: "\x1b[1;5B"                       }
-  - { key: Down,     mods: Alt,     chars: "\x1b[1;3B"                       }
   - { key: Down,                    chars: "\x1b[B",        mode: ~AppCursor }
   - { key: Down,                    chars: "\x1bOB",        mode: AppCursor  }
   - { key: F1,                      chars: "\x1bOP"                          }
@@ -532,3 +515,16 @@ key_bindings:
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                      }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
+
+  - { key: Left,  mods: Control|Alt, chars: "" }
+  - { key: Left,  mods: Shift,       chars: "" }
+  - { key: Left,  mods: Alt,         chars: "" }
+  - { key: Right, mods: Control|Alt, chars: "" }
+  - { key: Right, mods: Shift,       chars: "" }
+  - { key: Right, mods: Alt,         chars: "" }
+  - { key: Up,    mods: Control|Alt, chars: "" }
+  - { key: Up,    mods: Shift,       chars: "" }
+  - { key: Up,    mods: Alt,         chars: "" }
+  - { key: Down,  mods: Control|Alt, chars: "" }
+  - { key: Down,  mods: Shift,       chars: "" }
+  - { key: Down,  mods: Alt,         chars: "" }
