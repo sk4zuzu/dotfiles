@@ -6,6 +6,7 @@ colorscheme molokai
 set backspace=2
 set modeline
 set number
+
 set nobackup
 set nowritebackup
 set noundofile
@@ -17,12 +18,15 @@ set nosmartindent
 set nocindent
 set nowrap
 
-let g:default_modeline='# vim:ts=4:sw=4:et:'
+highlight RedundantSpaces ctermbg=blue guibg=blue
+match RedundantSpaces /\s\+$\| \+\ze\t/
+
+let g:default_modeline = '# vim:ts=4:sw=4:et:'
 
 fu! s:MakeModeline(...)
     let p = [ 'ts=' . &ts,
             \ 'sw=' . &sw,
-            \ 'et',
+            \ (&et ? 'et' : 'noet'),
             \ 'syn=' . &syn ]
     if a:0 == 0
         let b:effective_modeline = g:default_modeline
@@ -38,18 +42,20 @@ endfu
 autocmd BufNewFile,BufRead *.nix set filetype=nix
 autocmd BufNewFile,BufRead *.hcl set filetype=terraform
 
-autocmd FileType        nix set ts=2 sw=2 et | call s:MakeModeline('#')
-autocmd FileType     python set ts=4 sw=4 et | call s:MakeModeline('#')
-autocmd FileType          c set ts=4 sw=4 et | call s:MakeModeline('//')
-autocmd FileType       yaml set ts=2 sw=2 et | call s:MakeModeline('#')
-autocmd FileType         sh set ts=4 sw=4 et | call s:MakeModeline('#')
-autocmd FileType   markdown set ts=2 sw=2 et | call s:MakeModeline('[//]: # (', ')')
-autocmd FileType dockerfile set ts=2 sw=2 et | call s:MakeModeline('#')
+autocmd FileType          c set ts=4 sw=4 et   | call s:MakeModeline('//')
+autocmd FileType        css set ts=2 sw=2 et   | call s:MakeModeline('/*', '*/')
+autocmd FileType dockerfile set ts=2 sw=2 et   | call s:MakeModeline('#')
 autocmd FileType       json set ts=2 sw=2 et
-autocmd FileType        css set ts=2 sw=2 et | call s:MakeModeline('/*', '*/')
-autocmd FileType  terraform set ts=2 sw=2 et | call s:MakeModeline('#')
+autocmd FileType       make set ts=4 sw=4 noet | call s:MakeModeline('#')
+autocmd FileType   markdown set ts=2 sw=2 et   | call s:MakeModeline('[//]: # (', ')')
+autocmd FileType        nix set ts=2 sw=2 et   | call s:MakeModeline('#')
+autocmd FileType     python set ts=4 sw=4 et   | call s:MakeModeline('#')
+autocmd FileType         sh set ts=4 sw=4 et   | call s:MakeModeline('#')
+autocmd FileType  terraform set ts=2 sw=2 et   | call s:MakeModeline('#')
+autocmd FileType        vim set ts=4 sw=4 et   | call s:MakeModeline('"')
+autocmd FileType       yaml set ts=2 sw=2 et   | call s:MakeModeline('#')
 
 command ML execute
     \ '$s@$@\r' . (exists('b:effective_modeline') ? b:effective_modeline : g:default_modeline) . '@|noh|write!|edit'
 
-" vim:ts=4:sw=4:et:
+" vim:ts=4:sw=4:et:syn=vim:
