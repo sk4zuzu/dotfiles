@@ -9,6 +9,7 @@
         bash_5 which
         curl ncat
         git stow
+        jq
 
         gnumake pkg-config
 
