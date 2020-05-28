@@ -26,7 +26,7 @@ $(GOPATH)/bin/terraform-provider-template \
 $(GOPATH)/bin/terraform-provider-tls \
 $(GOPATH)/bin/terragrunt
 
-define hashicorp_release_install
+define HASHICORP_RELEASE_INSTALL
 .PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
@@ -40,7 +40,7 @@ $(GOPATH)/bin/$(1)-$(2):
 	&& chmod +x $$@
 endef
 
-define helm_release_install
+define HELM_RELEASE_INSTALL
 .PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
@@ -51,7 +51,7 @@ $(GOPATH)/bin/$(1)-$(2):
 	&& chmod +x $$@
 endef
 
-define kubernetes_release_install
+define KUBERNETES_RELEASE_INSTALL
 .PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
@@ -61,7 +61,7 @@ $(GOPATH)/bin/$(1)-$(2):
 	&& chmod +x $$@
 endef
 
-define terragrunt_release_install
+define TERRAGRUNT_RELEASE_INSTALL
 .PHONY: $(GOPATH)/bin/$(1)
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
@@ -98,39 +98,39 @@ clean:
 	rm -f $(TARGETS)
 
 $(eval \
-	$(call helm_release_install,helm,$(HELM_VERSION)))
+	$(call HELM_RELEASE_INSTALL,helm,$(HELM_VERSION)))
 
 $(eval \
-	$(call kubernetes_release_install,kubectl,$(KUBECTL_VERSION)))
+	$(call KUBERNETES_RELEASE_INSTALL,kubectl,$(KUBECTL_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,packer,$(PACKER_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,packer,$(PACKER_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform,$(TERRAFORM_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform,$(TERRAFORM_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform-provider-helm,$(TERRAFORM_PROVIDER_HELM_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-helm,$(TERRAFORM_PROVIDER_HELM_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform-provider-kubernetes,$(TERRAFORM_PROVIDER_KUBERNETES_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-kubernetes,$(TERRAFORM_PROVIDER_KUBERNETES_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform-provider-local,$(TERRAFORM_PROVIDER_LOCAL_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-local,$(TERRAFORM_PROVIDER_LOCAL_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform-provider-null,$(TERRAFORM_PROVIDER_NULL_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-null,$(TERRAFORM_PROVIDER_NULL_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform-provider-random,$(TERRAFORM_PROVIDER_RANDOM_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-random,$(TERRAFORM_PROVIDER_RANDOM_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform-provider-template,$(TERRAFORM_PROVIDER_TEMPLATE_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-template,$(TERRAFORM_PROVIDER_TEMPLATE_VERSION)))
 
 $(eval \
-	$(call hashicorp_release_install,terraform-provider-tls,$(TERRAFORM_PROVIDER_TLS_VERSION)))
+	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-tls,$(TERRAFORM_PROVIDER_TLS_VERSION)))
 
 $(eval \
-	$(call terragrunt_release_install,terragrunt,$(TERRAGRUNT_VERSION)))
+	$(call TERRAGRUNT_RELEASE_INSTALL,terragrunt,$(TERRAGRUNT_VERSION)))
 
 # vim:ts=4:sw=4:noet:syn=make:
