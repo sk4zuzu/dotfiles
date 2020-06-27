@@ -26,17 +26,18 @@ spawnOnUnless :: Query Bool -> WorkspaceId -> String -> X ()
 spawnOnUnless qry ws cmd = ifWindow qry idHook $ spawnOn ws cmd
 
 
-spawnUnless :: String -> [String] -> X ()
-spawnUnless cmd args = do
+spawnUnless :: String -> String -> [String] -> X ()
+spawnUnless regexp cmd args = do
     realUserID <- io $ show <$> getRealUserID
-    output <- runProcessWithInput "pgrep" ["-u", realUserID, cmd] mempty
+    output <- runProcessWithInput "pgrep" ["-u", realUserID, "-f", regexp] mempty
     if null output then safeSpawn cmd args
-                   else io . putStrLn $ "Nooo...!"
+                   else io . putStrLn $ "xmonad.hs: skipping spawn of " <> cmd
 
 
 myStartupHook = setWMName "LG3D"
              >> spawn "xrandr.sh"
-             >> spawnUnless "redshift" mempty
+             >> spawnUnless "acpi.sh$" "acpi.sh" mempty
+             >> spawnUnless "redshift$" "redshift" mempty
              >> spawnOnUnless (className =? "Pavucontrol"     ) "1" "pavucontrol"
              >> spawnOnUnless (className =? "Chromium-browser") "2" "chromium-browser"
              >> spawnOnUnless (className =? "Slack"           ) "2" "slack"
