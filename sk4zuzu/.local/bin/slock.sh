@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Improve error handling.
+set -o errexit -o nounset -o pipefail
+
 if which slock; then
     #if which xrandr; then
     #    if xrandr | grep "eDP-1"; then

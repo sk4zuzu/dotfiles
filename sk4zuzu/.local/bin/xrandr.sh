@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 
+# Improve error handling.
+set -o errexit -o nounset -o pipefail
+
+if which xbacklight; then
+    xbacklight -set 100
+fi
+
+if which hsetroot; then
+    hsetroot -solid "#000000"
+fi
+
 if which xrandr; then
-    if xrandr | grep "eDP-1"; then
-        xrandr --output "eDP-1" --auto
-        if xrandr | grep "HDMI-1"; then
-            xrandr --output "HDMI-1" --auto --right-of "eDP-1"
-            xrandr --output "HDMI-1" --primary
+    if xrandr | grep "eDP1"; then
+        xrandr --output "eDP1" --auto
+        if xrandr | grep "HDMI1"; then
+            xrandr --output "HDMI1" --auto --left-of "eDP1"
+            xrandr --output "HDMI1" --primary
         fi
     fi
 fi
