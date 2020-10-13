@@ -6,15 +6,17 @@
       paths = [
         vim mc htop groff
         zip unzip
-        bash_5 which
+        bash_5 bc which
         curl ncat
-        git stow
+        git git-lfs stow
         jq
+
+        nethogs iftop
 
         gnumake pkg-config
 
         vscode
-        go
+        go gcc
         python3
         python37Packages.virtualenv
 
@@ -23,6 +25,8 @@
         docker_compose
 
         cdrkit cloud-utils
+
+        aws-iam-authenticator
       ];
     };
   };

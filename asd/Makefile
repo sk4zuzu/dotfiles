@@ -1,16 +1,16 @@
-
-HELM_VERSION                          ?= 2.13.1
-KUBECTL_VERSION                       ?= 1.13.1
-PACKER_VERSION                        ?= 1.4.5
-TERRAFORM_VERSION                     ?= 0.12.13
-TERRAFORM_PROVIDER_HELM_VERSION       ?= 0.10.4
-TERRAFORM_PROVIDER_KUBERNETES_VERSION ?= 1.9.0
+HELM_VERSION                          ?= 3.3.4
+KUBECTL_VERSION                       ?= v1.18.6
+PACKER_VERSION                        ?= 1.6.4
+TERRAFORM_VERSION                     ?= 0.13.4
+TERRAFORM_PROVIDER_HELM_VERSION       ?= 1.3.2
+TERRAFORM_PROVIDER_KUBERNETES_VERSION ?= 1.13.2
 TERRAFORM_PROVIDER_LOCAL_VERSION      ?= 1.4.0
-TERRAFORM_PROVIDER_NULL_VERSION       ?= 2.1.2
-TERRAFORM_PROVIDER_RANDOM_VERSION     ?= 2.2.1
-TERRAFORM_PROVIDER_TEMPLATE_VERSION   ?= 2.1.2
-TERRAFORM_PROVIDER_TLS_VERSION        ?= 2.1.1
-TERRAGRUNT_VERSION                    ?= 0.21.4
+TERRAFORM_PROVIDER_NULL_VERSION       ?= 3.0.0
+TERRAFORM_PROVIDER_RANDOM_VERSION     ?= 3.0.0
+TERRAFORM_PROVIDER_TEMPLATE_VERSION   ?= 2.2.0
+TERRAFORM_PROVIDER_TLS_VERSION        ?= 2.2.0
+TERRAGRUNT_VERSION                    ?= v0.25.3
+YQ_VERSION                            ?= 3.4.0
 
 TARGETS = \
 $(GOPATH)/bin/helm \
@@ -24,7 +24,8 @@ $(GOPATH)/bin/terraform-provider-null \
 $(GOPATH)/bin/terraform-provider-random \
 $(GOPATH)/bin/terraform-provider-template \
 $(GOPATH)/bin/terraform-provider-tls \
-$(GOPATH)/bin/terragrunt
+$(GOPATH)/bin/terragrunt \
+$(GOPATH)/bin/yq
 
 define HASHICORP_RELEASE_INSTALL
 .PHONY: $(GOPATH)/bin/$(1)
@@ -56,23 +57,25 @@ define KUBERNETES_RELEASE_INSTALL
 $(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
 	rm -f $$@ && ln -s $$< $$@
 $(GOPATH)/bin/$(1)-$(2):
-	curl -fSL https://storage.googleapis.com/kubernetes-release/release/v$(2)/bin/linux/amd64/$(1) \
+	curl -fSL https://storage.googleapis.com/kubernetes-release/release/$(2)/bin/linux/amd64/$(1) \
 	     -o $$@ \
 	&& chmod +x $$@
 endef
 
-define TERRAGRUNT_RELEASE_INSTALL
-.PHONY: $(GOPATH)/bin/$(1)
-$(GOPATH)/bin/$(1): $(GOPATH)/bin/$(1)-$(2)
+define GITHUB_RELEASE_INSTALL
+.PHONY: $(GOPATH)/bin/$(2)
+$(GOPATH)/bin/$(2): $(GOPATH)/bin/$(2)-$(3)
 	rm -f $$@ && ln -s $$< $$@
-$(GOPATH)/bin/$(1)-$(2):
-	curl -fSL https://github.com/gruntwork-io/$(1)/releases/download/v$(2)/$(1)_linux_amd64 \
+$(GOPATH)/bin/$(2)-$(3):
+	curl -fSL https://github.com/$(1)/releases/download/$(3)/$(2)_linux_amd64 \
 	     -o $$@ \
 	&& chmod +x $$@
 endef
 
 PIP_REQUIREMENTS = \
 ansible \
+jsonschema \
+netaddr \
 pipenv
 
 NPM_REQUIREMENTS = \
@@ -131,6 +134,9 @@ $(eval \
 	$(call HASHICORP_RELEASE_INSTALL,terraform-provider-tls,$(TERRAFORM_PROVIDER_TLS_VERSION)))
 
 $(eval \
-	$(call TERRAGRUNT_RELEASE_INSTALL,terragrunt,$(TERRAGRUNT_VERSION)))
+	$(call GITHUB_RELEASE_INSTALL,gruntwork-io/terragrunt,terragrunt,$(TERRAGRUNT_VERSION)))
+
+$(eval \
+	$(call GITHUB_RELEASE_INSTALL,mikefarah/yq,yq,$(YQ_VERSION)))
 
 # vim:ts=4:sw=4:noet:syn=make:
