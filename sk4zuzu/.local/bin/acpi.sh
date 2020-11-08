@@ -16,7 +16,7 @@ while :; do
     if OUTPUT=$(acpitool -b | head -n1 | tr -s ' ') && [[ "$OUTPUT" == *Discharging* ]]; then
         # Extract the #1 battery percentage and skip if below threshold.
         if PERCENT=$(grep -m1 -oP '\d+(?=\.\d+%)' <<< "$OUTPUT") && [[ "$PERCENT" -lt "$THRESHOLD" ]]; then
-            # Send notification to the dunst daemon (it will be started automatically if not running).
+            # Send notification to the dunst daemon
             notify-send --urgency critical --expire-time "$TIMEOUT" "$OUTPUT"
         fi
     fi

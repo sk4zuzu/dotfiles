@@ -36,6 +36,7 @@ spawnUnless regexp cmd args = do
 
 myStartupHook = setWMName "LG3D"
              >> spawn "xrandr.sh"
+             >> spawnUnless "dunst$" "dunst" mempty
              >> spawnUnless "acpi.sh$" "acpi.sh" mempty
              >> spawnUnless "redshift$" "redshift" mempty
              >> spawnOnUnless (className =? "Pavucontrol"     ) "1" "pavucontrol"
