@@ -3,7 +3,7 @@
 export PS1='\u:\w\$ '
 
 alias hrep='history|grep'
-alias root='sudo -u root -i'
+alias root='doas -s'
 
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 
@@ -18,9 +18,3 @@ else
     done
     unset KEY
 fi
-
-if [ -f "${HOME}/3.6/bin/activate" ]; then
-    source ${HOME}/3.6/bin/activate
-fi
-
-# vim:ts=4:sw=4:et:
