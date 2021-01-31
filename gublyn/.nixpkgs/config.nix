@@ -6,14 +6,14 @@
       paths = [
         vim mc htop
         zip unzip
-        bash which
+        bash_5 which
         curl jq
         git stow
+        cdrkit
         docker_compose
-        vscode gnumake
+        gnumake
         rustup lldb clang
       ];
     };
   };
 }
-# vim:ts=2:sw=2:et:syn=nix:
