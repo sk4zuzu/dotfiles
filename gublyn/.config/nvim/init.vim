@@ -38,11 +38,13 @@ endfu
 autocmd BufNewFile,BufRead *.nix      set filetype=nix
 autocmd BufNewFile,BufRead *.sol      set filetype=solidity
 autocmd BufNewFile,BufRead *.ts,*.tsx set filetype=typescript
+autocmd BufNewFile,BufRead *.rs       set filetype=rust
 
 autocmd FileType        nix set ts=2 sw=2 et | call s:MakeModeline('#')
 autocmd FileType   solidity set ts=4 sw=4 et | call s:MakeModeline('//')
 autocmd FileType     python set ts=4 sw=4 et | call s:MakeModeline('#')
 autocmd FileType          c set ts=4 sw=4 et | call s:MakeModeline('//')
+autocmd FileType       rust set ts=4 sw=4 et | call s:MakeModeline('//')
 autocmd FileType       yaml set ts=2 sw=2 et | call s:MakeModeline('#')
 autocmd FileType         sh set ts=4 sw=4 et | call s:MakeModeline('#')
 autocmd FileType   markdown set ts=2 sw=2 et | call s:MakeModeline('[//]: # (', ')')

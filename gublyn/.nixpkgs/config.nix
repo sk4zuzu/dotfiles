@@ -4,7 +4,7 @@
     local = with pkgs; buildEnv {
       name = "local";
       paths = [
-        vim mc htop
+        neovim mc htop
         zip unzip
         bash_5 which
         curl jq

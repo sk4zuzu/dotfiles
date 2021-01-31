@@ -4,6 +4,7 @@ export PS1='\u:\w\$ '
 
 alias hrep='history|grep'
 alias root='doas -s'
+alias vim='nvim'
 
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 
