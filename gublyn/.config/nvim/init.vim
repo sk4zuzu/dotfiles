@@ -12,10 +12,14 @@ set noundofile
 
 filetype indent off
 
+set indentexpr='paste'
 set noautoindent
 set nosmartindent
 set nocindent
 set nowrap
+
+highlight RedundantSpaces ctermbg=blue guibg=blue
+match RedundantSpaces /\s\+$\| \+\ze\t/
 
 let g:default_modeline='# vim:ts=4:sw=4:et:'
 
@@ -56,5 +60,3 @@ autocmd FileType        css set ts=2 sw=2 et | call s:MakeModeline('/*', '*/')
 
 command ML execute
     \ '$s@$@\r' . (exists('b:effective_modeline') ? b:effective_modeline : g:default_modeline) . '@|noh|write!|edit'
-
-" vim:ts=4:sw=4:et:
