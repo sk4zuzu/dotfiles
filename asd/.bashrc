@@ -1,10 +1,20 @@
 #!/usr/bin/env sh
 
-export PS1='\u:\w\$ '
+if [ -f "${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kube-ps1.sh" ]; then
+    source "${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kube-ps1.sh"
+    export PS1='$(kube_ps1) \u:\w\$ '
+else
+    export PS1='\u:\w\$ '
+fi
 
 alias hrep='history|grep'
 alias root='doas -s'
 alias vim='nvim'
+
+alias kubectl="${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kubectl"
+alias kubectx="${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kubectx"
+alias kubens="${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kubens"
+alias helm="${HOME}/_git/sk4zuzu-nix/helm-flk/result/helm"
 
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 
