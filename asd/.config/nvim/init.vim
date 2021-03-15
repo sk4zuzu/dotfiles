@@ -57,5 +57,3 @@ autocmd FileType       yaml set ts=2 sw=2 et   | call s:MakeModeline('#')
 
 command ML execute
     \ '$s@$@\r' . (exists('b:effective_modeline') ? b:effective_modeline : g:default_modeline) . '@|noh|write!|edit'
-
-" vim:ts=4:sw=4:et:syn=vim:

@@ -4,31 +4,17 @@
     local = with pkgs; buildEnv {
       name = "local";
       paths = [
-        vim mc htop groff
+        neovim mc htop groff
         zip unzip
         bash_5 bc which
         curl ncat
-        git git-lfs stow
-        jq
+        git stow
 
-        nethogs iftop
-
-        gnumake pkg-config
-
-        vscode
-        go gcc
-        python3
-        python37Packages.virtualenv
-
-        nodejs-10_x
-
+        python3.8
         docker_compose
 
-        cdrkit cloud-utils
-
-        aws-iam-authenticator
+        awscli2 aws-iam-authenticator
       ];
     };
   };
 }
-# vim:ts=2:sw=2:et:syn=nix:
