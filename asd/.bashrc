@@ -15,6 +15,7 @@ alias kubectl="${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kubectl"
 alias kubectx="${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kubectx"
 alias kubens="${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kubens"
 alias helm="${HOME}/_git/sk4zuzu-nix/helm-flk/result/helm"
+alias terraform="${HOME}/_git/sk4zuzu-nix/terraform-flk/result/terraform"
 
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 
