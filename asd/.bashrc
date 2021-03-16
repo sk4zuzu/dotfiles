@@ -8,6 +8,7 @@ else
 fi
 
 alias hrep='history|grep'
+alias md='(pandoc|lynx --stdin)<'
 alias root='doas -s'
 alias vim='nvim'
 

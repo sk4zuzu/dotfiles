@@ -4,7 +4,8 @@
     local = with pkgs; buildEnv {
       name = "local";
       paths = [
-        neovim mc htop groff
+        neovim mc htop
+        groff lynx pandoc
         zip unzip
         bash_5 bc which
         curl ncat
