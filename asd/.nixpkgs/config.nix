@@ -8,7 +8,7 @@
         groff lynx pandoc
         zip unzip
         bash_5 bc which
-        curl ncat
+        curl ncat jq
         git stow
 
         python3.8
