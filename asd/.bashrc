@@ -12,6 +12,9 @@ alias md='(pandoc|lynx --stdin)<'
 alias root='doas -s'
 alias vim='nvim'
 
+alias dc='docker-compose'
+alias tf='dc run tf'
+
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 
 if [ -n "${SSH_AGENT_PID}" ]; then
