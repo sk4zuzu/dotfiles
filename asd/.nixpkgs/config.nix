@@ -11,12 +11,12 @@
         curl ncat jq
         git stow
 
-        python3.8
-        python38Packages.virtualenv
+        python38Packages.python
+        python38Packages.pip
 
         docker_compose
 
-        awscli2 aws-iam-authenticator
+        aws-iam-authenticator
       ];
     };
   };

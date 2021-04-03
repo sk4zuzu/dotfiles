@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-if [ -f "${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kube-ps1.sh" ]; then
-    source "${HOME}/_git/sk4zuzu-nix/kubectl-flk/result/kube-ps1.sh"
+if [ -f "${HOME}/_git/sk4zuzu-nix/asd-flk/result/kube-ps1.sh" ]; then
+    source "${HOME}/_git/sk4zuzu-nix/asd-flk/result/kube-ps1.sh"
     export PS1='$(kube_ps1) \u:\w\$ '
 else
     export PS1='\u:\w\$ '
@@ -27,8 +27,4 @@ else
         ssh-add $KEY
     done
     unset KEY
-fi
-
-if [ -f "${HOME}/3.8/bin/activate" ]; then
-    source "${HOME}/3.8/bin/activate"
 fi
