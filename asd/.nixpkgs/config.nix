@@ -9,14 +9,19 @@
         zip unzip
         bash_5 bc which
         curl ncat jq
-        git stow
 
-        python38Packages.python
+        stow
+        gitAndTools.git
+        gitAndTools.pre-commit
+
+        python38Packages.ansible
         python38Packages.pip
+        python38Packages.pyopenssl
+        python38Packages.python
 
         docker_compose
 
-        aws-iam-authenticator
+        awscli aws-iam-authenticator
       ];
     };
   };
