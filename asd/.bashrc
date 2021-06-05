@@ -25,6 +25,10 @@ function a {
         --bind "enter:execute(if [[ -n '{2}' ]]; then nvim {1} +{2}; else nvim {1}; fi)"
 }
 
+function h {
+    eval `bat $HOME/.bash_history | sk --ansi`
+}
+
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 
 if [ -n "${SSH_AGENT_PID}" ]; then
