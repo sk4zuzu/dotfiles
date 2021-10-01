@@ -16,6 +16,28 @@ alias kc='kubectl'
 alias tf='terraform'
 alias tg='terragrunt'
 
+alias get='kubectl get'
+alias des='kubectl describe'
+
+alias vm='kubectl get vm'
+alias pod='kubectl get pod'
+alias svc='kubectl get svc'
+alias ing='kubectl get ing'
+alias all='kubectl get all'
+alias pvc='kubectl get pvc,pv'
+alias sec='kubectl get secret'
+alias log='kubectl logs -f'
+
+function netshoot {
+    kubectl run tmp-netshoot-$(openssl rand -hex 2) \
+        --rm -i --tty --image nicolaka/netshoot -- /bin/bash
+}
+
+function netshoot_host {
+    kubectl run tmp-netshoot-$(openssl rand -hex 2) \
+        --rm -i --tty --overrides='{"spec": {"hostNetwork": true}}' --image nicolaka/netshoot -- /bin/bash
+}
+
 function a {
     local -r sk='sk --ansi'
     local -r rg='rg --color=always'

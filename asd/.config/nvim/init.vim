@@ -42,7 +42,7 @@ endfu
 autocmd BufNewFile,BufRead *.nix set filetype=nix
 autocmd BufNewFile,BufRead *.hcl set filetype=terraform
 
-autocmd FileType          c set ts=4 sw=4 et   | call s:MakeModeline('//')
+autocmd FileType     c,java set ts=4 sw=4 et   | call s:MakeModeline('//')
 autocmd FileType        css set ts=2 sw=2 et   | call s:MakeModeline('/*', '*/')
 autocmd FileType dockerfile set ts=2 sw=2 et   | call s:MakeModeline('#')
 autocmd FileType       json set ts=2 sw=2 et

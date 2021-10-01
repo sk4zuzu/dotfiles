@@ -3,3 +3,10 @@
 	email = sk4zuzu@gmail.com
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
+[alias]
+	a = commit --amend
+	c = "! f(){ [ -n \"$*\" ] && git commit -m \"$*\" || git commit; }; f"
+	l = log
+	s = show
+	ss = status
+	t = tag
