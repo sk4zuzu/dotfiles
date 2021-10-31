@@ -1,0 +1,15 @@
+[user]
+	name = Michal Opala
+	email = sk4zuzu@gmail.com
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
+[alias]
+	a = add
+	aa = commit --amend
+	c = "! f(){ [ -n \"$*\" ] && git commit -m \"$*\" || git commit; }; f"
+	co = checkout
+	d = diff
+	l = log
+	s = show
+        ss = status
+	t = tag
