@@ -1,0 +1,2 @@
+#!/bin/sh
+exec doas -u asd $SHELL -c "cd && exec emacs"

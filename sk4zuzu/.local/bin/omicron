@@ -1,0 +1,2 @@
+#!/bin/sh
+exec alacritty -e doas machinectl shell omicron /usr/bin/sudo -iu ubuntu

@@ -1,5 +1,2 @@
 #!/bin/sh
-
-exec alacritty -e sudo -iu gublyn
-
-# vim:ts=4:sw=4:et:
+exec alacritty -e doas -u gublyn $SHELL -c "cd && exec $SHELL --login"
