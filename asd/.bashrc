@@ -8,8 +8,11 @@ else
 fi
 
 alias hrep='history|grep'
+alias mc='LC_CTYPE=en_US.utf8 mc'
 alias root='doas -s'
 alias vim='nvim'
+
+alias g='git'
 
 alias dc='docker-compose'
 alias kc='kubectl'

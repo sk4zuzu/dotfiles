@@ -11,7 +11,7 @@ set nobackup
 set nowritebackup
 set noundofile
 
-filetype indent off
+filetype plugin indent on
 
 set noautoindent
 set nosmartindent
@@ -42,18 +42,20 @@ endfu
 autocmd BufNewFile,BufRead *.nix set filetype=nix
 autocmd BufNewFile,BufRead *.hcl set filetype=terraform
 
-autocmd FileType     c,java set ts=4 sw=4 et   | call s:MakeModeline('//')
-autocmd FileType        css set ts=2 sw=2 et   | call s:MakeModeline('/*', '*/')
-autocmd FileType dockerfile set ts=2 sw=2 et   | call s:MakeModeline('#')
-autocmd FileType       json set ts=2 sw=2 et
-autocmd FileType       make set ts=4 sw=4 noet | call s:MakeModeline('#')
-autocmd FileType   markdown set ts=2 sw=2 et   | call s:MakeModeline('[//]: # (', ')')
-autocmd FileType        nix set ts=2 sw=2 et   | call s:MakeModeline('#')
-autocmd FileType     python set ts=4 sw=4 et   | call s:MakeModeline('#')
-autocmd FileType         sh set ts=4 sw=4 et   | call s:MakeModeline('#')
-autocmd FileType  terraform set ts=2 sw=2 et   | call s:MakeModeline('#')
-autocmd FileType        vim set ts=4 sw=4 et   | call s:MakeModeline('"')
-autocmd FileType       yaml set ts=2 sw=2 et   | call s:MakeModeline('#')
+autocmd FileType        ruby set ts=4 sw=4 et   | call s:MakeModeline('#')
+autocmd FileType           c set ts=4 sw=4 et   | call s:MakeModeline('//')
+autocmd FileType java,groovy set ts=4 sw=4 et   | call s:MakeModeline('//')
+autocmd FileType         css set ts=2 sw=2 et   | call s:MakeModeline('/*', '*/')
+autocmd FileType  dockerfile set ts=2 sw=2 et   | call s:MakeModeline('#')
+autocmd FileType        json set ts=2 sw=2 et
+autocmd FileType        make set ts=4 sw=4 noet | call s:MakeModeline('#')
+autocmd FileType    markdown set ts=2 sw=2 et   | call s:MakeModeline('[//]: # (', ')')
+autocmd FileType         nix set ts=2 sw=2 et   | call s:MakeModeline('#')
+autocmd FileType      python set ts=4 sw=4 et   | call s:MakeModeline('#')
+autocmd FileType          sh set ts=4 sw=4 et   | call s:MakeModeline('#')
+autocmd FileType   terraform set ts=2 sw=2 et   | call s:MakeModeline('#')
+autocmd FileType         vim set ts=4 sw=4 et   | call s:MakeModeline('"')
+autocmd FileType        yaml set ts=2 sw=2 et   | call s:MakeModeline('#')
 
 command ML execute
     \ '$s@$@\r' . (exists('b:effective_modeline') ? b:effective_modeline : g:default_modeline) . '@|noh|write!|edit'

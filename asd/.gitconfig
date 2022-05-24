@@ -1,11 +1,12 @@
 [user]
 	name = Michal Opala
-	email = sk4zuzu@gmail.com
-[url "git@bitbucket.org:"]
-	insteadOf = https://bitbucket.org/
+	email = mopala@opennebula.io
 [alias]
-	a = commit --amend
+	a = add
 	c = "! f(){ [ -n \"$*\" ] && git commit -m \"$*\" || git commit; }; f"
+	ca = commit --amend
+	co = checkout
+	d = diff
 	l = log
 	s = show
 	ss = status
