@@ -3,8 +3,10 @@
 export PS1='\u:\w\$ '
 
 alias hrep='history|grep'
+alias mc='LC_CTYPE=en_US.utf8 mc'
 alias root='doas -s'
 alias vim='nvim'
+alias g='git'
 
 SSH_AGENT_PID=`pgrep -u ${USER} ssh-agent`
 

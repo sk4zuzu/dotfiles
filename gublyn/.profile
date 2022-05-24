@@ -9,6 +9,9 @@ export GOPATH="$HOME/go"
 
 export PATH="$GOPATH/bin:$PATH"
 
+export PROTOC="$HOME/.nix-profile/bin/protoc"
+export PROTOC_INCLUDE="$HOME/.nix-profile/include"
+
 if [ -e "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"
 fi
